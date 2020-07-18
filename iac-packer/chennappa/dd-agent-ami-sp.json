@@ -11,10 +11,19 @@
         "source_ami": "ami-07ebfd5b3428b6f4d",
         "instance_type": "t2.micro",
         "ssh_username": "ubuntu",
-        "ami_name": "dd-agent-ami-key"
+        "ami_name": "java-ami"
     }],
     "provisioners": [{
-        "type": "shell",
-        "script": "./dd-agent-install.sh"
-    }]
+            "type": "shell",
+            "script": "./java-install.sh"
+        },
+        {
+            "type": "shell",
+            "script": "./newrelic-agent.sh"
+        },
+        {
+            "type": "shell",
+            "script": "./dd-agent-install.sh"
+        }
+    ]
 }
