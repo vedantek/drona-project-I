@@ -1,0 +1,36 @@
+{
+    "variables": {
+      "aws_access_key": "{{env `AKIARZ27YZRDXNCD4THG`}}",
+      "aws_secret_key": "{{env `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`}}"
+    },
+    "builders": [
+      {
+        "type": "amazon-ebs",
+        "access_key": "{{user `AKIARZ27YZRDXNCD4THG`}}",
+        "secret_key": "{{user `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`}}",
+        "region": "ap-south-1",
+        "source_ami": "ami-f5e5929a",
+        "instance_type": "t2.micro",
+        "ssh_username": "ubuntu",
+        "ami_name": "nodejs-machine-{{timestamp}}",
+    "tags": {
+        "name": "nodejs-image"
+    }    
+        
+      }
+    ],
+    "provisioners": [
+      {
+          "type": "shell",
+          "script": "./sreenath_nodejs.sh"
+      } 
+      {
+        "type": "shell",
+        "script": "./sreenath_datadog.sh"
+    }
+    {
+        "type": "shell",
+        "script": "./sreenath_newrelic.sh"
+    }
+  ]
+  }  
