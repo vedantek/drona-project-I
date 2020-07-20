@@ -11,7 +11,7 @@
         "source_ami": "ami-0a63f96e85105c6d3",
         "instance_type": "t2.micro",
         "ssh_username": "ubuntu",
-        "ami_name": "tomcat99-ami"
+        "ami_name": "tomcat91-ami"
     }],
     "provisioners": [
 	{
