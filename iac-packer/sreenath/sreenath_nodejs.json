@@ -8,15 +8,12 @@
         "type": "amazon-ebs",
         "access_key": "{{user `aws_access_key`}}",
         "secret_key": "{{user `aws_secret_key`}}",
+        "token":  "{{user `aws_security_token`}}",
         "region": "us-east-1",
         "source_ami": "ami-f5e5929a",
         "instance_type": "t2.micro",
         "ssh_username": "ubuntu",
-        "ami_name": "amazon_linux-aws",
-    "tags": {
-        "name": "nodejs-image"
-    }    
-        
+        "ami_name": "amazon_linux-aws"   
       }
     ],
     "provisioners": [
