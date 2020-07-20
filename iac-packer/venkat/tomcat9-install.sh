@@ -2,8 +2,8 @@
 
 set -e
 
+#update repository
 sudo apt-get update
 
-sudo apt-get install default-jdk* -y
-
-sudo apt-get install tomcat* -y
+#install tomcat9 package
+sudo apt-get install tomcat9* -y
