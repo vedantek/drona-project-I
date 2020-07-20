@@ -12,7 +12,7 @@
         "source_ami": "ami-f5e5929a",
         "instance_type": "t2.micro",
         "ssh_username": "ubuntu",
-        "ami_name": "nodejs-machine-{{timestamp}}",
+        "ami_name": "amazon_linux-aws",
     "tags": {
         "name": "nodejs-image"
     }    

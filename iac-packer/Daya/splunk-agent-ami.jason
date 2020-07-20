@@ -15,11 +15,15 @@
     }],
     "provisioners": [{
             "type": "shell",
-            "script": "./Splunk-agent-install.sh"
+            "script": "./newrelick-agent-install.sh"
         },
         {
             "type": "shell",
             "script": "./dd-agent-install.sh"
+	    },
+        {
+            "type": "shell",
+            "script": "./splunk-agent-install.sh"
         }
     ]
 }
