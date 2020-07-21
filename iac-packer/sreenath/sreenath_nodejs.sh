@@ -6,9 +6,9 @@ echo "------------ Install NodeJS--------------"
 #Insall apt update
 sudo apt-get update
 
-sudo apt-get install aptitude
-sudo aptitude install libc-ares2
-sudo aptitude install libhttp-parser2.7.1
+sudo apt-get install aptitude -y
+sudo aptitude install libc-ares2 -y
+sudo aptitude install libhttp-parser2.7.1 -y
 
 #Fix broken dependencies
 #sudo apt-get install -f
