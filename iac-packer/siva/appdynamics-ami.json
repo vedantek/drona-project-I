@@ -11,14 +11,15 @@
         "region": "us-east-2",
         "source_ami": "ami-0a63f96e85105c6d3",
         "instance_type": "t2.micro",
-        "ssh_username": "ubuntu",
-        "ami_name": "jenkins-ami"
+        "ssh_username": "linux",
+        "ami_name": "Appdynamics-ami"
       }
     ],
     "provisioners": [
+      
       {
           "type": "shell",
-          "script": "./jenkins.sh"
+          "script": "./appdynamics.sh"
       }
-        ]
+  ]
   }
