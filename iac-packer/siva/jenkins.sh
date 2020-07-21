@@ -1,4 +1,5 @@
 #!/bin/bash
+cd /usr/bin
 sudo apt install default-jre -y
 sudo apt-get update
 wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
