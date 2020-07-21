@@ -5,12 +5,12 @@ echo "------------ Install NodeJS--------------"
 
 
 #Install NodeJS
-sudo apt install nodejs
+sudo apt-get install nodejs
 
 
 #Check the NodeJS Version
 node –version
 
 #Install npm
-sudo apt install npm
+sudo apt-get update
 npm –version
