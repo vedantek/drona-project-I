@@ -1,10 +1,9 @@
 #!/bin/bash
 sudo apt install default-jre -y
 sudo apt-get update
-wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
-sudo sh -c 'echo deb https://pkg.jenkins.io/debian binary/ > \
-    /etc/apt/sources.list.d/jenkins.list'
-sudo apt-get install jenkins -y
-sudo apt-get update
-service jenkins enable
-service jenkins start
+wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
+sudo sh -c 'echo deb http://pkg.jenkins-ci.org/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo apt update
+sudo apt install jenkins -y
+sudo systemctl start jenkins
+sudo systemctl status jenkins
