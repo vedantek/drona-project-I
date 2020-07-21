@@ -1,5 +1,6 @@
 #!/bin/bash
-cd /usr/java/jdk1. 7.0_05/
+export JAVA_HOME= /usr/java/jdk1. 7.0_05/
+export path= $JAVA_HOME:$PATH
 sudo apt install default-jre -y
 sudo apt-get update
 wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
