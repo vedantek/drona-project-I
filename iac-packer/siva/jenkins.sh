@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /usr/bin
+JAVA_HOME= /usr/java/jdk1. 7.0_05/
 sudo apt install default-jre -y
 sudo apt-get update
 wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
