@@ -1,4 +1,7 @@
 #!/bin/bash
+sudo apt-get update
+sudo apt-get install default-jre -y
+sudo apt-get update
 platform-admin.sh create-platform -- <platform name> --installation-dir <platform installation directory>
 platform-admin.sh add-credential --credential-name <name> --type <ssh> --user-name <username> --ssh-key-file <file path to the key file>
 platform-admin.sh add-hosts --hosts remotehost --credential <credential name>
