@@ -9,7 +9,7 @@
       "access_key": "{{user `aws_access_key`}}",
       "secret_key": "{{user `aws_secret_key`}}",
       "region": "ap-south-1",
-      "source_ami": "ami-07ebfd5b3428b6f4d",
+      "source_ami": "ami-08706cb5f68222d09",
       "instance_type": "t2.micro",
       "ssh_username": "ubuntu",
       "ami_name": "packer_AWS_NodeJS {{timestamp}}"
