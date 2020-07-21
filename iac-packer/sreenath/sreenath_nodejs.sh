@@ -3,6 +3,8 @@ set -e
 
 echo "------------ Install NodeJS--------------"
 
+#Insall apt update
+sudo apt-get update
 
 #Install NodeJS
 sudo apt-get install nodejs
@@ -12,5 +14,4 @@ sudo apt-get install nodejs
 node –v
 
 #Install npm
-sudo apt-get update
 npm –version
