@@ -5,3 +5,5 @@ sudo sh -c 'echo deb https://pkg.jenkins.io/debian binary/ > \
     /etc/apt/sources.list.d/jenkins.list'
 sudo apt-get update
 sudo apt-get install jenkins -y
+systemctl enable jenkins service
+systemctl start jenkins service
