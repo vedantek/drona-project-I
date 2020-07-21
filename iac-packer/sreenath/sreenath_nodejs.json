@@ -13,7 +13,7 @@
       "instance_type": "t2.micro",
       "communicator": "ssh",
       "ssh_pty" : "true",
-      "ssh_username": "ec2-user",
+      "ssh_username": "ubuntu",
       "ssh_timeout": "5m",
       "ami_name": "packer_AWS_NodeJS {{timestamp}}"
       }
