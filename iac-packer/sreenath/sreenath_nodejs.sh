@@ -9,7 +9,7 @@ sudo apt-get install nodejs
 
 
 #Check the NodeJS Version
-node –version
+node –v
 
 #Install npm
 sudo apt-get update
