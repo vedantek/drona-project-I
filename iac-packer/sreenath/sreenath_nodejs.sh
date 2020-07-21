@@ -7,10 +7,10 @@ echo "------------ Install NodeJS--------------"
 sudo apt-get update
 
 #Fix broken dependencies
-sudo apt-get install -f
+#sudo apt-get install -f
 
 #Install NodeJS
-sudo apt-get install nodejs
+sudo apt-get install nodejs -y
 
 #Check the NodeJS Version
 node –v
