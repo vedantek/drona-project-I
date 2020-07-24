@@ -4,7 +4,7 @@ set -e
 echo "------------ Install NodeJS--------------"
 
 #Insall apt update
-sudo apt-get update
+sudo apt-get update -y
 
 #sudo apt-get install aptitude -y
 #sudo aptitude install libc-ares2 -y
@@ -14,7 +14,7 @@ sudo apt-get update
 #sudo apt-get install -f
 
 #Install NodeJS and npm
-sudo apt-get install curl
+sudo apt-get install -y curl
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
