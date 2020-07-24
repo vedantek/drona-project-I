@@ -9,7 +9,7 @@
       "access_key": "{{user `aws_access_key`}}",
       "secret_key": "{{user `aws_secret_key`}}",
       "region": "ap-south-1",
-      "source_ami": "ami-03b8a287edc0c1253",
+      "source_ami": "ami-02d55cb47e83a99a0",
       "instance_type": "t2.micro",
       "communicator": "ssh",
       "ssh_pty" : "true",
