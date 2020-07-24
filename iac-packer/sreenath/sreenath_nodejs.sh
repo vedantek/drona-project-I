@@ -19,5 +19,5 @@ sudo apt-get install nodejs -y && sudo apt-get install npm -y
 #Check the NodeJS Version
 node –v
 
-#Install npm
+#npm version
 npm –version
