@@ -14,10 +14,12 @@ sudo apt-get update
 #sudo apt-get install -f
 
 #Install NodeJS and npm
-sudo apt-get install nodejs -y && sudo apt-get install npm -y
+sudo apt-get install -y nodejs
+
+#&& sudo apt-get install -y npm
 
 #Check the NodeJS Version
 node –v
 
 #npm version
-npm –version
+#npm –version
