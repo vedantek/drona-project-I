@@ -9,16 +9,17 @@
         "access_key": "{{user `aws_access_key`}}",
         "secret_key": "{{user `aws_secret_key`}}",
         "region": "us-east-2",
-        "source_ami": "ami-0a63f96e85105c6d3",
+        "source_ami": "ami-04781752c9b20ea41",
         "instance_type": "t2.micro",
         "ssh_username": "ubuntu",
-        "ami_name": "jenkins-ami"
+        "ami_name": "apache-ami"
       }
     ],
     "provisioners": [
+ 
       {
           "type": "shell",
-          "script": "./jenkins.sh"
+          "script": "./apache.sh"
       }
-        ]
+  ]
   }

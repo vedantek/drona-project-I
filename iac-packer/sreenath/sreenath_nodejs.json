@@ -1,22 +1,21 @@
 {
-    "variables": {
-      "aws_access_key": "{{env `AKIARZ27YZRDYSFK4A5L`}}",
-      "aws_secret_key": "{{env `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`}}"
-    },
-    "builders": [
-      {
-        "type": "amazon-ebs",
-        "access_key": "{{user `AKIARZ27YZRDYSFK4A5L`}}",
-        "secret_key": "{{user `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`}}",
-        "region": "ap-south-1",
-        "source_ami": "ami-f5e5929a",
-        "instance_type": "t2.micro",
-        "ssh_username": "packer-labs",
-        "ami_name": "nodejs-machine-{{timestamp}}",
-    "tags": {
-        "name": "nodejs-image"
-    }    
-        
+  "variables": {
+    "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
+    "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}"
+  },
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "access_key": "{{user `aws_access_key`}}",
+      "secret_key": "{{user `aws_secret_key`}}",
+      "region": "us-east-1",
+      "source_ami": "ami-07ebfd5b3428b6f4d",
+      "instance_type": "t2.micro",
+      "communicator": "ssh",
+      "ssh_pty" : "true",
+      "ssh_username": "ubuntu",
+      "ssh_timeout": "5m",
+      "ami_name": "packer_AWS_NodeJS {{timestamp}}"
       }
     ],
     "provisioners": [
