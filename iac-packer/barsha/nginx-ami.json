@@ -12,7 +12,7 @@
       "source_ami": "ami-0ac80df6eff0e70b5",
       "instance_type": "t2.micro",
       "ssh_username": "ubuntu",
-      "ami_name": "nginx-ami {{timestamp}}"
+      "ami_name": "nginx-ami"
     }
   ],
   "provisioners": [
