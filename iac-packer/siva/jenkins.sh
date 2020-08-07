@@ -6,5 +6,5 @@ wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key 
 sudo sh -c 'echo deb http://pkg.jenkins-ci.org/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
 sudo apt-get update
 sudo apt-get install jenkins -y
-sudo systemctl start jenkins -y
-sudo systemctl status jenkins 
+sudo service start jenkins -y
+sudo service status jenkins 
