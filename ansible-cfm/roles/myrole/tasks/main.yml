@@ -1,0 +1,11 @@
+---
+# tasks file for myrole
+- name: Install nginx server
+  apt: 
+    name=nginx 
+    state=present
+    
+- name: Start Nginx 
+  service: 
+    name=nginx 
+    state=restarted

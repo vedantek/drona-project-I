@@ -1,0 +1,5 @@
+---
+nrinfraintegrations_state: "absent"
+nrinfragent_state: "latest"
+nrinfragent_config:
+  license_key: 8e3e9ba09669b123e20c593d5c65368b2339NRAL

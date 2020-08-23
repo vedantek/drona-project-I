@@ -1,0 +1,13 @@
+---
+- hosts: appservers
+  become: true
+  tasks:
+  - name: Install nginx
+    apt: 
+      name=nginx 
+      state=absent
+  - name: Start nginx
+    service: 
+      name=nginx 
+      state=started 
+      enabled=yes
