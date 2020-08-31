@@ -9,6 +9,7 @@ resource "aws_instance" "web" {
   count = "${var.ec2-count}"
 
   ami           = "${data.aws_ami.webapp-ami.id}"
+  #ami= "ami-0a63cd87767e10ed4"
   instance_type = "t2.micro"
 
   subnet_id = "${element(local.subnets_ids, count.index)}"

@@ -5,7 +5,7 @@ data "aws_ami" "webapp-ami" {
    name   = "name"
    values = ["webapp-ami"]
  }
- owners = ["544620369291"]
+ owners = ["666451247465"]
 }
 
 data "aws_ami" "bastion-ami" {
@@ -15,7 +15,7 @@ data "aws_ami" "bastion-ami" {
    name   = "name"
    values = ["bastion-ami"]
  }
- owners = ["544620369291"]
+ owners = ["666451247465"]
 }
 
 data "aws_ami" "ansible-control-ami" {
@@ -25,7 +25,7 @@ data "aws_ami" "ansible-control-ami" {
    name   = "name"
    values = ["ansible-control-ami"]
  }
- owners = ["544620369291"]
+ owners = ["666451247465"]
 }
 
 data "aws_ami" "mongodb-ami" {
@@ -35,5 +35,5 @@ data "aws_ami" "mongodb-ami" {
    name   = "name"
    values = ["mongodb-ami"]
  }
- owners = ["544620369291"]
+ owners = ["666451247465"]
 }

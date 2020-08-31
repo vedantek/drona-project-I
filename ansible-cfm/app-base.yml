@@ -11,4 +11,4 @@
   roles:
     - ssh-key
     - docker
-    - newrelic-monitor
+    - newrelic

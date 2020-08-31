@@ -7,7 +7,8 @@ locals {
 resource "aws_instance" "ansible" {
   count = "1"
 
-  ami           = "${data.aws_ami.ansible-control-ami.id}"
+  ami = "${data.aws_ami.ansible-control-ami.id}"
+  #ami= "ami-0a63cd87767e10ed4"
   instance_type = "t2.micro"
 
   subnet_id = "${element(local.ansible_subnet, count.index)}"

@@ -9,6 +9,7 @@ resource "aws_instance" "mongodb" {
   count = "1"
 
   ami           = "${data.aws_ami.mongodb-ami.id}"
+  #ami= "ami-0a63cd87767e10ed4"
   instance_type = "t2.medium"
 
   subnet_id = "${element(local.db_subnet, count.index)}"

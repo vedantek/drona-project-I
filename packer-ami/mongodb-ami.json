@@ -2,28 +2,25 @@
     "variables": {
         "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
         "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
-        "region":         "us-west-2"
+        "region": "us-west-1"
     },
-    "builders": [
-        {
-            "access_key": "{{user `aws_access_key`}}",
-            "ami_name": "mongodb-ami",
-            "instance_type": "t2.micro",
-            "region": "us-west-1",
-            "secret_key": "{{user `aws_secret_key`}}",
-            "source_ami": "ami-026e9e583bf07479b",      
-            "ssh_username": "ubuntu",
-            "type": "amazon-ebs"
-        }
-    ],
-    "provisioners": [
-        {
+    "builders": [{
+        "access_key": "{{user `aws_access_key`}}",
+        "ami_name": "mongodb-ami",
+        "instance_type": "t2.micro",
+        "region": "us-west-1",
+        "secret_key": "{{user `aws_secret_key`}}",
+        "source_ami": "ami-0a63cd87767e10ed4",
+        "ssh_username": "ubuntu",
+        "type": "amazon-ebs"
+    }],
+    "provisioners": [{
             "type": "shell",
             "inline": ["sudo apt-get update -y"]
-          },
+        },
         {
             "type": "ansible",
             "playbook_file": "../ansible-cfm/mongodb-ami.yml"
-          }
+        }
     ]
 }

@@ -1,73 +1,67 @@
-resource "aws_alb" "web" {
+# Create a new Public load balancer for WebApp
+resource "aws_elb" "web" {
   name            = "web-${var.environment}"
   internal        = false
   security_groups = ["${aws_security_group.web-alb.id}"]
-  subnets         = "${local.subnets_ids}"
+  availability_zones = ["us-west-1a", "us-west-1b"]
 
-  tags= {
-    environment = "${var.environment}"
+
+  listener {
+    instance_port     = 8000
+    instance_protocol = "http"
+    lb_port           = 80
+    lb_protocol       = "http"
+  }
+
+  health_check {
+    healthy_threshold   = 2
+    unhealthy_threshold = 2
+    timeout             = 3
+    target              = "HTTP:8000/"
+    interval            = 30
+  }
+
+  instances                   = ["${aws_instance.web.*.id}"]
+  cross_zone_load_balancing   = true
+  idle_timeout                = 400
+  connection_draining         = true
+  connection_draining_timeout = 400
+
+  tags = {
+    Name = "web-${var.environment}"
   }
 }
 
-resource "aws_alb" "service" {
-  name            = "service-${var.environment}"
-  internal        = true
+# Create a new private load balancer for backend
+resource "aws_elb" "service" {
+  name            = "web-${var.environment}"
+  internal        = false
   security_groups = ["${aws_security_group.web-alb.id}"]
-  subnets         = "${local.private_subnet}"
+  availability_zones = ["us-west-1a", "us-west-1b"]
 
-  tags ={
-    environment = "${var.environment}"
+
+  listener {
+    instance_port     = 8000
+    instance_protocol = "http"
+    lb_port           = 80
+    lb_protocol       = "http"
   }
-}
 
-resource "aws_alb_target_group" "web" {
-  name     = "web-target-group-${var.environment}"
-  port     = 80
-  protocol = "HTTP"
-  vpc_id   = "${var.vpc-id}"
-}
-
-resource "aws_alb_target_group" "service" {
-  name     = "service-target-group-${var.environment}"
-  port     = 80
-  protocol = "HTTP"
-  vpc_id   = "${var.vpc-id}"
-}
-
-resource "aws_alb_listener" "web" {
-  load_balancer_arn = "${aws_alb.web.arn}"
-  port              = "80"
-  protocol          = "HTTP"
-
-  default_action {
-    target_group_arn = "${aws_alb_target_group.web.arn}"
-    type             = "forward"
+  health_check {
+    healthy_threshold   = 2
+    unhealthy_threshold = 2
+    timeout             = 3
+    target              = "HTTP:8000/"
+    interval            = 30
   }
-}
 
-resource "aws_alb_listener" "service" {
-  load_balancer_arn = "${aws_alb.service.arn}"
-  port              = "80"
-  protocol          = "HTTP"
+  instances                   = ["${aws_instance.service.*.id}"]
+  cross_zone_load_balancing   = true
+  idle_timeout                = 400
+  connection_draining         = true
+  connection_draining_timeout = 400
 
-  default_action {
-    target_group_arn = "${aws_alb_target_group.service.arn}"
-    type             = "forward"
+  tags = {
+    Name = "web-${var.environment}"
   }
-}
-
-resource "aws_alb_target_group_attachment" "web" {
-  count = "${var.ec2-count}"
-
-  target_group_arn = "${aws_alb_target_group.web.arn}"
-  target_id        = "${element(aws_instance.web.*.id, count.index)}"
-  port             = 3000
-}
-
-resource "aws_alb_target_group_attachment" "service" {
-  count = "${var.ec2-count}"
-
-  target_group_arn = "${aws_alb_target_group.service.arn}"
-  target_id        = "${element(aws_instance.service.*.id, count.index)}"
-  port             = 3000
 }

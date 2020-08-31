@@ -1,0 +1,21 @@
+{
+    "variables": {
+        "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
+        "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
+        "region": "us-west-1"
+    },
+    "builders": [{
+        "access_key": "{{user `aws_access_key`}}",
+        "ami_name": "tomcat-ami",
+        "instance_type": "t2.micro",
+        "region": "us-west-1",
+        "secret_key": "{{user `aws_secret_key`}}",
+        "source_ami": "ami-0dd005d3eb03f66e8",
+        "ssh_username": "ubuntu",
+        "type": "amazon-ebs"
+    }],
+    "provisioners": [{
+        "type": "shell",
+        "inline": ["sudo apt-get update && sudo apt-get install default-jre* -y && sudo apt-get install tomcat9 -y"]
+    }]
+}

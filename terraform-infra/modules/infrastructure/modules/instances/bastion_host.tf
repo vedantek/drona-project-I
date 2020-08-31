@@ -8,6 +8,7 @@ resource "aws_instance" "bastion" {
   count = "1"
 
   ami           = "${data.aws_ami.bastion-ami.id}"
+  #ami= "ami-0a63cd87767e10ed4"
   instance_type = "t2.micro"
 
   subnet_id = "${element(local.bastion_subnet, count.index)}"

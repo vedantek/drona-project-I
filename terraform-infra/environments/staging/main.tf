@@ -10,7 +10,7 @@ module "staging-state" {
 
 terraform {
   backend "s3" {
-    bucket  = "stag-state-file"
+    bucket  = "vedantek-staging-state-file"
     key     = "terraform.tfstate"
     region  = "us-west-1"
     encrypt = true
